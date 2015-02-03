@@ -1,6 +1,7 @@
 #include <Servo.h>
 
-int value = 0;
+int value = 0, remoteValue;
+#define REMOTE_PIN = 8;
 
 Servo firstESC, secondESC, thirdESC, fourthESC;
 
@@ -11,7 +12,7 @@ void setup() {
   //I'm not sure 12 has PWM support, just wrote this as an example at home
   fourthESC.attach(12);
 
-  Serial.begin(9600);
+  pinMode(REMOTE_PIN, INPUT);
 }
 
 void loop() {
@@ -20,7 +21,6 @@ void loop() {
   thirdESC.writeMicroseconds(value);
   fourthESC.writeMicroseconds(value);
 
-TEst
-  if(Serial.available())
-    value = Serial.parseInt();
+  //pulseIn returns an integer that gives the number of microseconds of a pulse, eg. ______/¯\_____/¯¯¯\____ The 'HIGH' means that we are interested in the hight voltage pulses, not drops.
+  value = pulseIn(REMOTE_PIN, HIGH);
 }
