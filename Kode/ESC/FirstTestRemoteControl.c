@@ -1,3 +1,12 @@
+/*
+Written by Thorvald Ballestad and Karsten Stadler
+TekForsk Ullern VGS 2015
+
+Makes all four motors spin, controlled by remote control.
+
+Version: Very Alpha
+ */
+
 #include <Servo.h>
 
 int value = 0, pitch = 0;
