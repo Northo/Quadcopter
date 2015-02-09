@@ -7,5 +7,5 @@ void setup() {
 
 void loop() {
   int value = analogRead(IN_PIN);
-  analogWrite(ESC, value);
+  analogWrite(ESC, map(value, 0, 1023, 0, 255) );
 }
