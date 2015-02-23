@@ -1,23 +1,23 @@
-#include "Arduino.h"
+#include "Arduino.h" //Tillgang til Arduinos API, delay, digitalWrite osv.
 #include "PID.h"
 
-int setpoint = 0;
-
-PID::PID(GyroRead gyro) {
-  _pin = pin;
-  _gyro = gyro;
-  _lastError = gyro.getValue();
+PID::PID() {
+  _setpoint = 0;
+  _lastError = 0;
   _sumError = 0;
   _kp = 1;
   _ki = 1;
   _kd = 1;
 }
 
-int PID::evaluate() {
-  int reading = gyro.getValue();
-  int error = _setpoint - reading;
+//Eventuellt kan setpoint settes i en egen funksjon
+
+int PID::evaluate(int setpoint, int value) {
+  _setpoint = setpoint;
+
+  int error = _setpoint - value;
   _sumError+=error;
-  int diff = reading - _lastError;
+  int diff = error - _lastError; //Dette er bare tull
 
   _lastError = error;
   return _kp*error + _ki*_sumError + _kd*diff;
