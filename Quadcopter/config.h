@@ -12,9 +12,10 @@
 #define MOTOR_BL 9
 
 //----------Rx config-------------------
+#define RX_TIMEOUT 2200
 //------Pins------
-#define RX_PIN_TROTTLE
-#define RX_PIN_PITCH
+#define RX_PIN_THROTTLE 4
+#define RX_PIN_PITCH 7
 #define RX_PIN_ROLL
 #define RX_PIN_YAW
 //Auxillary - button and knobs
@@ -22,20 +23,20 @@
 #define RX_PIN_AUX2
 
 //------KEY VALUES-
-#define TROTTLE_MIN 
-#define TROTTLE_MAX
+#define RX_THROTTLE_MIN 1028
+#define RX_THROTTLE_MAX 1864
 
-#define PITCH_MIN 
-#define PITCH_MAX
+#define RX_PITCH_MIN 1196
+#define RX_PITCH_MAX 1703
 
-#define ROLL_MIN 
-#define ROLL_MAX
+#define RX_ROLL_MIN 1194
+#define RX_ROLL_MAX 1703
 
-#define YAW_MIN 
-#define YAW_MAX
+#define RX_YAW_MIN 1035
+#define RX_YAW_MAX 1867
 
-#define AUX1_MIN
-#define AUX1_MAX
+#define RX_AUX1_MIN
+#define RX_AUX1_MAX
 
-#define AUX2_MIN
-#define AUX2_MAX
+#define RX_AUX2_MIN
+#define RX_AUX2_MAX
