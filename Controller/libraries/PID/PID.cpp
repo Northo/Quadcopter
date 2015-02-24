@@ -5,6 +5,7 @@ PID::PID() {
   _setpoint = 0;
   _lastError = 0;
   _sumError = 0;
+  _lastTime = millis();
   _kp = 1;
   _ki = 1;
   _kd = 1;
@@ -12,13 +13,18 @@ PID::PID() {
 
 //Eventuellt kan setpoint settes i en egen funksjon
 
-int PID::evaluate(int setpoint, int value) {
-  _setpoint = setpoint;
-
+int PID::evaluate(int value) {
   int error = _setpoint - value;
+  int time = millis();
+
   _sumError+=error;
-  int diff = error - _lastError; //Dette er bare tull
+  int diff = (_lastError - error)/(_lastTime - time);
 
   _lastError = error;
+  _lastTime = time;
   return _kp*error + _ki*_sumError + _kd*diff;
+}
+
+void PID::update(int setpoint) {
+  _setpoint = setpoint;
 }

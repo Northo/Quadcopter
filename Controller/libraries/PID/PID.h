@@ -3,14 +3,14 @@
 class PID {
  public:
   PID();
-  int evaluate(int setpoint, int value);
+  int evaluate(int value);
+  void update(int setpoint);
 
  private:
   int _setpoint;
-  int _pin;
+  int _lastTime;
   int _lastError;
   int _sumError;
-  int _gyro;
   int _kp;
   int _ki;
   int _kd;
