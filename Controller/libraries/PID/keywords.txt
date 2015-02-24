@@ -1,0 +1,7 @@
+Class PID
+
+int PID::evaluate(int error)
+diff = _kd * (errorLast - errorNow)/(timeNow - timeLast)
+return proportional + derivative + integral
+
+PID::update(int setpoint)
