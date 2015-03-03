@@ -6,21 +6,22 @@
 #define MOTOR_MAX_LEVEL 254
 
 //Motor pins
-#define MOTOR_FR 6
-#define MOTOR_FL 10
-#define MOTOR_BR 5
+#define MOTOR_FR 10
+#define MOTOR_FL 3
+#define MOTOR_BR 11
 #define MOTOR_BL 9
 
 //----------Rx config-------------------
 #define RX_TIMEOUT 2200
 //------Pins------
 #define RX_PIN_THROTTLE 4
+
 #define RX_PIN_PITCH 7
-#define RX_PIN_ROLL
-#define RX_PIN_YAW
+#define RX_PIN_ROLL 8
+#define RX_PIN_YAW 12
 //Auxillary - button and knobs
-#define RX_PIN_AUX1
-#define RX_PIN_AUX2
+#define RX_PIN_AUX1 13
+#define RX_PIN_AUX2 2
 
 //------KEY VALUES-
 #define RX_THROTTLE_MIN 1028

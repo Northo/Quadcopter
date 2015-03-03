@@ -1,5 +1,5 @@
-#define collective_Pin = 0;
-#define arm_switch_Pin = 1; /* Kan sette dette til channel 5 eller noe sånt (bare en flip-switch på fjernkontrollen)*/
+#define collective_Pin 0
+#define arm_switch_Pin 1 /* Kan sette dette til channel 5 eller noe sånt (bare en flip-switch på fjernkontrollen)*/
 int _on = 1; /* Antar her at flip-switch'en på fjernkontrollen enten sender 0 når den er av, og 1 når den er på. Denne flip-switch'en vil funke som armerings-bryter.*/ 
 int escPin1 = 9;
 int escPin2 = 12; /* Usikker på om det er PWM på pin'sene under?*/
