@@ -1,7 +1,6 @@
 void FlightController() {
   unsigned int motorFrValue, motorFlValue, motorBrValue, motorBlValue;
   unsigned int throttle, pitch, roll, yaw;
-  unsigned int rxThrottle, rxPitch, rxRoll, rxYaw, rxAux1, rxAux2;
 
   //motor values are computed by adding throttle, roll, yaw and pitch
   throttle = map(rxThrottle, RX_THROTTLE_MIN, RX_THROTTLE_MAX, MOTOR_ZERO_LEVEL, MOTOR_MAX_LEVEL);

@@ -8,6 +8,7 @@ Quadcopter.ino is the main file.
 #include "config.h"
 #include <PID>
 
+unsigned int rxThrottle, rxPitch, rxRoll, rxYaw, rxAux1, rxAux2;
 
 void setup() {
 }
