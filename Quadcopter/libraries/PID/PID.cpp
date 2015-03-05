@@ -11,8 +11,6 @@ PID::PID() {
   _kd = 1;
 }
 
-//Eventuellt kan setpoint settes i en egen funksjon
-
 int PID::evaluate(int value) {
   int error = _setpoint - value;
   int time = millis();
