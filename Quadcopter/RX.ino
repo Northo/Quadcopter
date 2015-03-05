@@ -1,3 +1,5 @@
+volatile unsigned int rxThrottle, rxPitch, rxRoll, rxYaw, rxAux1, rxAux2;
+
 void RX() {
   rxThrottle = readRx(RX_PIN_THROTTLE);
   rxPitch    = readRx(RX_PIN_PITCH);
