@@ -14,14 +14,14 @@
 //----------Rx config-------------------
 #define RX_TIMEOUT 2200
 //------Pins------
-#define RX_PIN_THROTTLE 4
+#define RX_PIN_THROTTLE 7
 
-#define RX_PIN_PITCH 7
-#define RX_PIN_ROLL 8
-#define RX_PIN_YAW 12
+#define RX_PIN_PITCH 4
+#define RX_PIN_ROLL 2 
+#define RX_PIN_YAW 8
 //Auxillary - button and knobs
-#define RX_PIN_AUX1 13
-#define RX_PIN_AUX2 2
+#define RX_PIN_AUX1 12
+#define RX_PIN_AUX2 NULL
 
 //------KEY VALUES-
 #define RX_THROTTLE_MIN 1028
