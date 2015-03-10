@@ -1,3 +1,6 @@
+#define SAFE
+//#define DEBUG
+
 //----------ESC's config-----------------
 
 //PWM values
@@ -26,6 +29,8 @@
 //------KEY VALUES-
 #define RX_THROTTLE_MIN 1028
 #define RX_THROTTLE_MAX 1864
+#define THROTTLE_MAX MOTOR_MAX_LEVEL - (PITCH_MAX + ROLL_MAX + YAW_MAX)
+#define THROTTLE_MIN MOTOR_ZERO_LEVEL + 25
 
 #define RX_PITCH_MIN 1196
 #define RX_PITCH_MAX 1703
@@ -42,8 +47,8 @@
 #define YAW_MIN -15
 #define YAW_MAX 15
 
-#define RX_AUX1_MIN
-#define RX_AUX1_MAX
+#define RX_AUX1_MIN 1040
+#define RX_AUX1_MAX 1866
 #define AUX1_MIN -15
 #define AUX1_MAX 15
 
