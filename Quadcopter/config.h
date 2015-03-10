@@ -29,15 +29,25 @@
 
 #define RX_PITCH_MIN 1196
 #define RX_PITCH_MAX 1703
+#define PITCH_MIN -15
+#define PITCH_MAX 15
 
 #define RX_ROLL_MIN 1194
 #define RX_ROLL_MAX 1703
+#define ROLL_MIN -15
+#define ROLL_MAX 15
 
 #define RX_YAW_MIN 1035
 #define RX_YAW_MAX 1867
+#define YAW_MIN -15
+#define YAW_MAX 15
 
 #define RX_AUX1_MIN
 #define RX_AUX1_MAX
+#define AUX1_MIN -15
+#define AUX1_MAX 15
 
 #define RX_AUX2_MIN
 #define RX_AUX2_MAX
+#define AUX2_MIN -15
+#define AUX2_MAX 15
