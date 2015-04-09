@@ -10,37 +10,37 @@
 
 //Motor pins
 #ifdef _DUE_BOARD
-#define MOTOR_FR 10
-#define MOTOR_FL 3
-#define MOTOR_BR 11
-#define MOTOR_BL 9
+#define MOTOR_FR 2
+#define MOTOR_FL 5
+#define MOTOR_BR 3
+#define MOTOR_BL 4
 #elif defined _UNO_BOARD
-#define MOTOR_FR 10
-#define MOTOR_FL 3
-#define MOTOR_BR 11
-#define MOTOR_BL 9
+#define MOTOR_FR 6
+#define MOTOR_FL 9
+#define MOTOR_BR 10
+#define MOTOR_BL 11
 #endif
 
 //----------Rx config-------------------
 #define RX_TIMEOUT 2200
 //------Pins------
 #ifdef _DUE_BOARD
-#define RX_PIN_THROTTLE 7
-#define RX_PIN_PITCH 4
-#define RX_PIN_ROLL 2 
-#define RX_PIN_YAW 8
-
+#define RX_PIN_THROTTLE 10
+#define RX_PIN_PITCH 9
+#define RX_PIN_ROLL 8
+#define RX_PIN_YAW 11
 //Auxillary - button and knobs
 #define RX_PIN_AUX1 12
 #define RX_PIN_AUX2 NULL
+
 #elif defined _UNO_BOARD
-#define RX_PIN_THROTTLE 7
-#define RX_PIN_PITCH 4
-#define RX_PIN_ROLL 2 
-#define RX_PIN_YAW 8
+#define RX_PIN_THROTTLE 4
+#define RX_PIN_PITCH 2
+#define RX_PIN_ROLL 3
+#define RX_PIN_YAW 5
 
 //Auxillary - button and knobs
-#define RX_PIN_AUX1 12
+#define RX_PIN_AUX1 7
 #define RX_PIN_AUX2 NULL
 #endif
 

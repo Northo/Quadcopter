@@ -5,11 +5,13 @@ Karsten Sebastian Stadler, Martin Due Andersen and Thorvald Molthe Ballestad
 Quadcopter.ino is the main file.
 */
 
-#include "config.h"
-#include <PID>
+//#define _DUE_BOARD
+#define _UNO_BOARD
 
-#define _DUE_BOARD
-//#define _UNO_BOARD
+//#define DEBUG
+
+#include "config.h"
+#include <PID.h>
 
 volatile unsigned int rxThrottle, rxPitch, rxRoll, rxYaw, rxAux1, rxAux2;
 
@@ -22,4 +24,5 @@ void setup() {
 void loop() {
   RX(); //Handles all RX
   FlightController(); //writes appropriate values to motors using PID
+  Serial.println(rxThrottle);
 }
