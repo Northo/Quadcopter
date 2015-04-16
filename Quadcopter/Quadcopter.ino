@@ -23,5 +23,6 @@ void setup() {
 
 void loop() {
   RX(); //Handles all RX
+  Gyro();
   FlightController(); //writes appropriate values to motors using PID
 }

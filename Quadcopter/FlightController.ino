@@ -1,6 +1,8 @@
 void FlightController() {
   int motorFrValue, motorFlValue, motorBrValue, motorBlValue;
   int throttle, pitch, roll, yaw;
+  int gyro[NUMBER_OF_AXIS]; //0:x, 1:y, 2:z
+  int gyroPin[NUMBER_OF_AXIS] = {GYRO_X_PIN, GYRO_Y_PIN, GYRO_Z_PIN};
   
   //motor values are computed by adding throttle, roll, yaw and pitch
   throttle = map(rxThrottle, RX_THROTTLE_MIN, RX_THROTTLE_MAX, THROTTLE_MIN, THROTTLE_MAX);

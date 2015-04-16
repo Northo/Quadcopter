@@ -74,3 +74,12 @@
 #define RX_AUX2_MAX
 #define AUX2_MIN -15
 #define AUX2_MAX 15
+
+//------Gyro acc-----------
+#define NUMBER_OF_AXIS 3 //Brukes for å iterere samt definere array
+#define GYRO_X_PIN 0 //Analog pins
+#define GYRO_Y_PIN
+#define GYRO_Z_PIN
+
+#define GYRO_VOLTAGE 3.3
+#define GYRO_ZERO 1.65
