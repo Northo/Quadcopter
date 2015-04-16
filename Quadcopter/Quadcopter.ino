@@ -14,6 +14,8 @@ Quadcopter.ino is the main file.
 #include <PID.h>
 
 volatile unsigned int rxThrottle, rxPitch, rxRoll, rxYaw, rxAux1, rxAux2;
+int gyro[NUMBER_OF_AXIS]; //0:x, 1:y, 2:z
+int gyroPin[NUMBER_OF_AXIS] = {GYRO_X_PIN, GYRO_Y_PIN, GYRO_Z_PIN};
 
 void setup() {
   #ifdef DEBUG
