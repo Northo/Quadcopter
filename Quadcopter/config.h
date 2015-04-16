@@ -15,10 +15,10 @@
 #define MOTOR_BR 3
 #define MOTOR_BL 4
 #elif defined _UNO_BOARD
-#define MOTOR_FR 6
-#define MOTOR_FL 9
 #define MOTOR_BR 10
-#define MOTOR_BL 11
+#define MOTOR_BL 9
+#define MOTOR_FR 3
+#define MOTOR_FL 11
 #endif
 
 //----------Rx config-------------------
@@ -34,13 +34,13 @@
 #define RX_PIN_AUX2 NULL
 
 #elif defined _UNO_BOARD
-#define RX_PIN_THROTTLE 4
-#define RX_PIN_PITCH 2
-#define RX_PIN_ROLL 3
-#define RX_PIN_YAW 5
+#define RX_PIN_THROTTLE 2
+#define RX_PIN_PITCH 1
+#define RX_PIN_ROLL 4
+#define RX_PIN_YAW 0
 
 //Auxillary - button and knobs
-#define RX_PIN_AUX1 7
+#define RX_PIN_AUX1 5
 #define RX_PIN_AUX2 NULL
 #endif
 
