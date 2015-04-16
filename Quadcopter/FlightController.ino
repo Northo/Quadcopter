@@ -10,10 +10,10 @@ void FlightController() {
   roll  = map(rxRoll, RX_ROLL_MIN, RX_ROLL_MAX, ROLL_MIN, ROLL_MAX);
   yaw   = map(rxYaw, RX_YAW_MIN, RX_YAW_MAX, YAW_MIN, YAW_MAX);
 
-  motorFrValue = throttle - pitch + roll - yaw;
-  motorFlValue = throttle - pitch - roll + yaw;
-  motorBrValue = throttle + pitch + roll + yaw;
-  motorBlValue = throttle + pitch - roll - yaw;
+  motorFrValue = throttle - pitch - roll + yaw;
+  motorFlValue = throttle - pitch + roll - yaw;
+  motorBrValue = throttle + pitch - roll - yaw;
+  motorBlValue = throttle + pitch + roll + yaw;
 
   /*  motorFrValue = throttle - pitch;
   motorFlValue = throttle - pitch;
