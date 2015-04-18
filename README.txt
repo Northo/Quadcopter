@@ -1,4 +1,6 @@
-
+&& Gyro &&
+http://bildr.org/2012/03/stable-orientation-digital-imu-6dof-arduino/
+Omskrevet 9DOF til 6DOF.
 
 &&  FlightController &&
 Det er hovedsakelig to mulige tilnærminger til FCs(FlightController) stabilisasjonssystem, grad-basert og aksererasjonsbasert.
