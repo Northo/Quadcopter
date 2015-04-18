@@ -54,6 +54,8 @@
 #define RX_PITCH_MAX 1703
 #define PITCH_MIN -15
 #define PITCH_MAX 15
+#define PITCH_MIN_DEG -30
+#define PITCH_MAX_DEG 30
 
 #define RX_ROLL_MIN 1194
 #define RX_ROLL_MAX 1703
@@ -74,14 +76,3 @@
 #define RX_AUX2_MAX
 #define AUX2_MIN -15
 #define AUX2_MAX 15
-
-//------Gyro acc-----------
-#define NUMBER_OF_AXIS 3 //Brukes for å iterere samt definere array
-#define GYRO_X_PIN 0 //Analog pins
-#define GYRO_Y_PIN 1
-#define GYRO_Z_PIN 2
-
-#define GYRO_VOLTAGE 3.3
-#define GYRO_ZERO 1.65
-
-#define GYRO_SENSITIVITY 0.01 //DEBUG
