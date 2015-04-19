@@ -1,9 +1,10 @@
 void FlightController() {
   int motorFrValue, motorFlValue, motorBrValue, motorBlValue;
   int throttle, pitch, pitchSet, roll, rollSet, yaw, yawSet;
-  PID pidPitch;
+  PID pidPitch, pidRoll;
 
   pidPitch.update(pitch);
+  pidRoll.update(roll);
 
   //motor values are computed by adding throttle, roll, yaw and pitch
   throttle = map(rxThrottle, RX_THROTTLE_MIN, RX_THROTTLE_MAX, THROTTLE_MIN, THROTTLE_MAX);
@@ -16,7 +17,7 @@ void FlightController() {
 
 
   pitch = pitchSet + pidPitch.evaluate(angles[1]);
-  roll = rollSet;
+  roll = rollSet + pidRoll.evaluate(angles[2]);
   yaw = yawSet;
 
   motorFrValue = throttle - pitch - roll + yaw;
