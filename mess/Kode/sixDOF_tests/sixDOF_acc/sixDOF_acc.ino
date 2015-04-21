@@ -4,9 +4,10 @@
 
 #include <Wire.h>
 
-float angles[3]; // yaw pitch roll
+float acc[3];
 
 // Set the FreeSixIMU object
+//SDA - A4 && SDL - A5
 FreeSixIMU sixDOF = FreeSixIMU();
 
 void setup() { 
@@ -19,15 +20,14 @@ void setup() {
 }
 
 void loop() { 
-  
-  sixDOF.getEuler(angles);
-  
-  Serial.print(angles[0]);
-  Serial.print(" | ");  
-  Serial.print(angles[1]);
+  sixDOF.getYawPitchRoll(acc);
+
+  Serial.print(acc[0]);
   Serial.print(" | ");
-  Serial.println(angles[2]);
-  
+  Serial.print(acc[1]);
+  Serial.print(" | ");
+  Seiral.println(acc[2]);
+
   delay(100); 
 }
 
