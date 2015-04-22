@@ -37,6 +37,6 @@ void loop() {
   Serial.print(" - ");
   Serial.println(angles[2]);
   
-  delay(100); 
+  delay(500); 
 }
 

@@ -26,7 +26,7 @@ void loop() {
   Serial.print(" | ");
   Serial.print(acc[1]);
   Serial.print(" | ");
-  Seiral.println(acc[2]);
+  Serial.println(acc[2]);
 
   delay(100); 
 }

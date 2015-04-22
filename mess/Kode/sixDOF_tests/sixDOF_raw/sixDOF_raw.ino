@@ -4,7 +4,7 @@
 
 #include <Wire.h>
 
-float raw[6];
+int raw[6];
 
 // Set the FreeSixIMU object
 //SDA - A4 && SDL - A5
@@ -27,13 +27,13 @@ void loop() {
   Serial.print(" | ");
   Serial.print(raw[1]);
   Serial.print(" | ");
-  Seiral.print(raw[2]);
+  Serial.print(raw[2]);
   Serial.print(" && ");
   Serial.print(raw[3]);
   Serial.print(" | ");
   Serial.print(raw[4]);
   Serial.print(" | ");
-  Seiral.print(raw[5]);
+  Serial.println(raw[5]);
 
   delay(100); 
 }
