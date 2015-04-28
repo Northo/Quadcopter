@@ -1,3 +1,7 @@
+/*
+  Tester PID om en akse. Her er setpoint satt til 0(kan settes til en annen fast verdi), slik at problemer med å lese fjernkontroll ikke har noe å si.
+ */
+
 #include <PID.h>
 #include <Wire.h>
 #include <FreeSixIMU.h>
