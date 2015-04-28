@@ -1,5 +1,5 @@
 /*
-  Tester PID om en akse. Her er setpoint satt til 0(kan settes til en annen fast verdi), slik at problemer med å lese fjernkontroll ikke har noe å si.
+  Tester PID om en akse. Her er setpoint satt til 0(kan settes til en annen fast verdi), slik at problemer med å lese fjernkontroll ikke har noe å si. Det er viktig at motorer og gyro er enige om hva som er frem. Hvis ikke vil feilen bli forsterket. Om dette skjer er det bare å bytte om signalene til motorene.
  */
 
 #include <PID.h>
