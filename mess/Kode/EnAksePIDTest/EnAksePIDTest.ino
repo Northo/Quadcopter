@@ -29,6 +29,8 @@ void setup() {
 void loop() {
   float yawPitchRoll[3];
   sixDOF.getYawPitchRoll(yawPitchRoll); //sett yaw, pitch og roll inn i array 'yawPitchRoll'. Denne funksjonen kommer fra FreeSixIMU biblioteket
+  //sixDOF.getEuler(yawPitchRoll);
+  //sixDOF.getAngles(yawPitchRoll);
 
   int motor1 = throttle + pid.evaluate(yawPitchRoll[1]); //kanskje må jawPitchRoll[1] castes: gjøres om fra float til int. Det gjøres slik: 'pid.evaluate((int) yawPitchRoll[1]);'
   int motor2 = throttle - pid.evaluate(yawPitchRoll[1]);
