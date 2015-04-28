@@ -18,6 +18,12 @@ FreeSixIMU sixDOF = FreeSixIMU();
 int throttle = MOTOR_MODERATE_LEVEL; //kan event. styres med fjernkontroll i en senere versjon
 void setup() {
   pid.update(0);//setpoint konstant 0
+
+  /*
+  --Dette kan være lurt å teste--
+  pinMode(MOTOR1PIN, OUTPUT); //Defaul er 'INPUT'. Da fungerer pinnen som om det er en stor motstand, 100 megaohm, foran. Det kan være nødvendig med en ekstern resistor på 1k, for ikke å skade Arduino.
+  pinMode(MOTOR2PIN, OUTPUT);
+  */
 }
 
 void loop() {
