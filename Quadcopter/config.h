@@ -22,6 +22,7 @@
 #endif
 
 //----------Rx config-------------------
+#define SENSITIVITY 0.5
 #define RX_TIMEOUT 2200
 //------Pins------
 #ifdef _DUE_BOARD
@@ -36,8 +37,8 @@
 #elif defined _UNO_BOARD
 #define RX_PIN_THROTTLE 2
 #define RX_PIN_PITCH 1
-#define RX_PIN_ROLL 4
-#define RX_PIN_YAW 0
+#define RX_PIN_ROLL 0
+#define RX_PIN_YAW 4
 
 //Auxillary - button and knobs
 #define RX_PIN_AUX1 5

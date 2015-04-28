@@ -16,14 +16,14 @@ void FlightController() {
   pidPitch.update(pitchSet);
   pidRoll.update(rollSet);
 
-  pitch = pitchSet + pidPitch.evaluate(angles[1]);
-  roll = rollSet + pidRoll.evaluate(angles[2]);
-  yaw = yawSet;
+  pitch = (pitchSet + pidPitch.evaluate(angles[1]))*SENSITIVITY;;
+  roll = (rollSet + pidRoll.evaluate(angles[2])*SENSITIVITY);
+  yaw = yawSet*SENSITIVITY;
 
-  motorFrValue = throttle - pitch - roll + yaw;
-  motorFlValue = throttle - pitch + roll - yaw;
-  motorBrValue = throttle + pitch - roll - yaw;
-  motorBlValue = throttle + pitch + roll + yaw;
+  motorFrValue = throttle - pitch + roll - yaw;
+  motorFlValue = throttle - pitch - roll + yaw;
+  motorBrValue = throttle + pitch + roll + yaw;
+  motorBlValue = throttle + pitch - roll - yaw;
 
 #ifdef SAFE
   if(rxAux1 < (RX_AUX1_MAX + RX_AUX1_MIN)/2 ) {
