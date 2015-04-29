@@ -14,11 +14,11 @@ void FlightController() {
 
 
   pidPitch.update(pitchSet);
-  pidRoll.update(rollSet);
+  pitch = (pitchSet + pidPitch.evaluate(angles[1]));
+  roll = (rollSet);
+  yaw = yawSet;
 
-  pitch = (pitchSet + pidPitch.evaluate(angles[1]))*SENSITIVITY;;
-  roll = (rollSet + pidRoll.evaluate(angles[2])*SENSITIVITY);
-  yaw = yawSet*SENSITIVITY;
+ // Serial.println("loop");
 
   motorFrValue = throttle - pitch + roll - yaw;
   motorFlValue = throttle - pitch - roll + yaw;

@@ -10,5 +10,5 @@ void RX() {
 
 unsigned int readRx(int pin){
  //return pulseIn(pin, HIGH, RX_TIMEOUT);
- return pulseIn(pin, HIGH);
+ return pulseIn(pin, HIGH, RX_TIMEOUT);
 }

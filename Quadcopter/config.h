@@ -23,7 +23,7 @@
 
 //----------Rx config-------------------
 #define SENSITIVITY 0.5
-#define RX_TIMEOUT 2200
+#define RX_TIMEOUT 100000
 //------Pins------
 #ifdef _DUE_BOARD
 #define RX_PIN_THROTTLE 10
