@@ -5,8 +5,8 @@ Karsten Sebastian Stadler, Martin Due Andersen and Thorvald Molthe Ballestad
 Quadcopter.ino is the main file.
 */
 
-//#define _DUE_BOARD
-#define _UNO_BOARD
+#define _DUE_BOARD
+//#define _UNO_BOARD
 
 //#define DEBUG
 
@@ -25,6 +25,7 @@ FreeSixIMU sixDOF = FreeSixIMU(); //AccGyro
 
 void setup() {
   Wire.begin();
+  rxInit();
   #ifdef DEBUG
     Serial.begin(9600);
   #endif
@@ -34,7 +35,6 @@ void setup() {
 }
 
 void loop() {
-  RX(); //Handles all RX
   Gyro();
   FlightController(); //writes appropriate values to motors using PID
 }
