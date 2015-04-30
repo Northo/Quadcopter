@@ -5,3 +5,4 @@ diff = _kd * (errorLast - errorNow)/(timeNow - timeLast)
 return proportional + derivative + integral
 
 PID::update(int setpoint)
+PID::updateParameters(int kp, int ki, int kd)

@@ -26,3 +26,9 @@ int PID::evaluate(int value) {
 void PID::update(int setpoint) {
   _setpoint = setpoint;
 }
+
+void PID::updateParameters(int kp, int ki, int kd) {
+  _kp = kp;
+  _ki = ki;
+  _kd = kd;
+}
