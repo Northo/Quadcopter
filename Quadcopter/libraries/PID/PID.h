@@ -3,6 +3,7 @@ class PID {
   PID();
   int evaluate(int value);
   void update(int setpoint);
+  void updateParameters(int kp, int ki, int kd);
 
  private:
   int _setpoint;
