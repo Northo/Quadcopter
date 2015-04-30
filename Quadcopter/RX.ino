@@ -1,11 +1,11 @@
-volatile t[5];
+volatile int t[5];
 
 void rxInit() {
-  attachInterrupt(RX_PIN_THROTTLE, pinChange, RISING);
-  attachInterrupt(RX_PIN_PITCH, pinChange, RISING);
-  attachInterrupt(RX_PIN_ROLL, pinChange, RISING);
-  attachInterrupt(RX_PIN_YAW, pinChange, RISING);
-  attachInterrupt(RX_PIN_AUX1, pinChange, RISING);
+  attachInterrupt(RX_PIN_THROTTLE, rxGoesUpThrottle, RISING);
+  attachInterrupt(RX_PIN_PITCH, rxGoesUpPitch, RISING);
+  attachInterrupt(RX_PIN_ROLL, rxGoesUpRoll, RISING);
+  attachInterrupt(RX_PIN_YAW, rxGoesUpYaw, RISING);
+  attachInterrupt(RX_PIN_AUX1, rxGoesUpAux1, RISING);
 }
 
 //Not the most elegant solution, but it works(hopefully)
