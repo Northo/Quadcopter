@@ -10,8 +10,10 @@ PID pid;
 FreeSixIMU sixDOF = FreeSixIMU();
 
 //define er en del av c preprocessor. alle steder der det står 'MOTOR1PIN' vil bli byttet med 10, før kompilering. Dette betyr at det ikke trenger å ta plass i minnet
-#define MOTOR1PIN 10 // må være pwm
-#define MOTOR2PIN 11 // må være pwm
+#define MOTORF1PIN 10 // må være pwm
+#define MOTORB1PIN 11 // må være pwm
+#define MOTORF2PIN 12
+#define MOTORB2PIN 13
 
 #define MOTOR_MODERATE_LEVEL 270
 
@@ -35,6 +37,9 @@ void loop() {
   int motor1 = throttle + pid.evaluate(yawPitchRoll[1]); //kanskje må jawPitchRoll[1] castes: gjøres om fra float til int. Det gjøres slik: 'pid.evaluate((int) yawPitchRoll[1]);'
   int motor2 = throttle - pid.evaluate(yawPitchRoll[1]);
 
-  analogWrite(MOTOR1PIN, motor1);
-  analogWrite(MOTOR2PIN, motor2);
+  analogWrite(MOTORF1PIN, motor1);
+  analogWrite(MOTORF2PIN, motor1);
+
+  analogWrite(MOTORB1PIN, motor2);
+  analogWrite(MOTORB2PIN, motor2);
 }
