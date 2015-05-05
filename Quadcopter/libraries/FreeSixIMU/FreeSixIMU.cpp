@@ -65,6 +65,8 @@ void FreeSixIMU::init(int acc_addr, int gyro_addr, bool fastmode) {
     // as per note from atmega8 manual pg167
     cbi(PORTC, 4);
     cbi(PORTC, 5);
+  #endif
+  #if defined(ARDUINO_ARCH_SAM)
   #else
     // deactivate internal pull-ups for twi
     // as per note from atmega128 manual pg204
@@ -73,8 +75,10 @@ void FreeSixIMU::init(int acc_addr, int gyro_addr, bool fastmode) {
   #endif
   
   if(fastmode) { // switch to 400KHz I2C - eheheh
+  #if not defined(ARDUINO_ARCH_SAM)
     TWBR = ((16000000L / 400000L) - 16) / 2; // see twi_init in Wire/utility/twi.c
     // TODO: make the above usable also for 8MHz arduinos..
+  #endif
   }
   
 	// init ADXL345
