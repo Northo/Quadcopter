@@ -6,9 +6,9 @@ PID::PID() {
   _lastError = 0;
   _sumError = 0;
   _lastTime = millis();
-  _kp = 1;
-  _ki = 1;
-  _kd = 1;
+  _kp = 0;
+  _ki = 0;
+  _kd = 0;
 }
 
 int PID::evaluate(int value) {

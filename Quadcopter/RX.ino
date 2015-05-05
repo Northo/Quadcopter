@@ -1,5 +1,37 @@
-volatile int t[5];
+//volatile int t[5];
 
+
+void rxInit() {
+  rxPitch = (RX_PITCH_MAX + RX_PITCH_MIN) / 2;
+  rxRoll = (RX_ROLL_MAX + RX_ROLL_MIN) / 2;
+  rxYaw = (RX_YAW_MAX + RX_YAW_MIN) / 2;
+  //  rxAux1 = (RX_AUX1_MAX + RX_AUX1_MIN) / 2;
+ 
+  attachInterrupt(0, rxGoesUpThrottle, RISING); //0: pin 2
+  attachInterrupt(1, rxGoesUpAux1, RISING); //1: pin 3
+}
+
+void rxGoesUpThrottle() {
+  t[0] = micros();
+  attachInterrupt(0, rxGoesDownThrottle, FALLING);
+}
+
+void rxGoesDownThrottle() {
+  rxThrottle = micros() - t[0];
+  attachInterrupt(0, rxGoesUpThrottle, RISING);
+}
+
+void rxGoesUpAux1() {
+  t[1] = micros();
+  attachInterrupt(1, rxGoesDownAux1, FALLING);
+}
+
+void rxGoesDownAux1() {
+  rxAux1 = micros() - t[1];
+  attachInterrupt(1, rxGoesUpAux1, RISING);
+}
+
+/*
 void rxInit() {
   attachInterrupt(RX_PIN_THROTTLE, rxGoesUpThrottle, RISING);
   attachInterrupt(RX_PIN_PITCH, rxGoesUpPitch, RISING);
@@ -58,3 +90,4 @@ void rxGoesDownAux1() {
   rxAux1 = micros() - t[4];
   attachInterrupt(RX_PIN_AUX1, rxGoesUpAux1, RISING);
 }
+*/

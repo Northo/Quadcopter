@@ -17,7 +17,8 @@
 #elif defined _UNO_BOARD
 #define MOTOR_BR 10
 #define MOTOR_BL 9
-#define MOTOR_FR 3
+//#define MOTOR_FR 3
+#define MOTOR_FR 5
 #define MOTOR_FL 11
 #endif
 
