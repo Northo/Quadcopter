@@ -42,6 +42,18 @@ void FlightController() {
   }
 #endif
 
+#ifdef STOP_MAX //Don't know if this will stay or not, if successfull, remove if
+    for(i=0; i<2; i++) {
+      for(j=0; j<2; j++) {
+	if(motor[i][j] > MOTOR_MAX_LEVEL)
+	  motor[i][j] = MOTOR_MAX_LEVEL;
+	
+	if(motor[i][j] < MOTOR_ZERO_LEVEL)
+	  motor[i][j] = MOTOR_ZERO_LEVEL;
+      }
+    }
+#endif
+
   //PWM might damage motors
   analogWrite(MOTOR_FR, motor[0][0]);
   analogWrite(MOTOR_FL, motor[0][1]);

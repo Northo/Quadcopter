@@ -8,6 +8,7 @@ Quadcopter.ino is the main file.
 #define _DUE_BOARD
 //#define _UNO_BOARD
 
+#define STOP_MAX //stop motor values to exeeding extremals
 //#define DEBUG
 
 #include "config.h"
