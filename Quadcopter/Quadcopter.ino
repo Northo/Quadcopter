@@ -21,6 +21,7 @@ Quadcopter.ino is the main file.
 volatile unsigned int rxThrottle, rxPitch, rxRoll, rxYaw, rxAux1, rxAux2;
 float angles[3];
 PID pidPitch, pidRoll;
+float pidSensitivity = 0.01;
 
 FreeSixIMU sixDOF = FreeSixIMU(); //AccGyro
 

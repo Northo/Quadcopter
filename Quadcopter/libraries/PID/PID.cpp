@@ -27,7 +27,7 @@ void PID::update(int setpoint) {
   _setpoint = setpoint;
 }
 
-void PID::updateParameters(int kp, int ki, int kd) {
+void PID::updateParameters(float kp, float ki, float kd) {
   _kp = kp;
   _ki = ki;
   _kd = kd;
