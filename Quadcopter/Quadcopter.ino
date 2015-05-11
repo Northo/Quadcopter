@@ -9,7 +9,7 @@ Quadcopter.ino is the main file.
 //#define _UNO_BOARD
 
 #define STOP_MAX //stop motor values to exeeding extremals
-//#define DEBUG
+#define DEBUG
 
 #include "config.h"
 #include <PID.h>
@@ -35,8 +35,10 @@ void setup() {
   sixDOF.init();
   delay(5); //delay for å være sikker på at gyroAcc starter opp. Kanskje ikke nødvendig med så mye tid
 }
-
+int t;
 void loop() {
+  t = 0;
   Gyro();
   FlightController(); //writes appropriate values to motors using PID
+  Serial.println(t);
 }
