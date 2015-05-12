@@ -2,24 +2,16 @@ void FlightController() {
   int motor[2][2]; //[F/B][R/L] motor[0][1]:motor front left
 
   float throttle, pitch, pitchSet, roll, rollSet, yaw, yawSet;
-  //PID pidPitch, pidRoll; scope
 
   //motor values are computed by adding throttle, roll, yaw and pitch
   throttle = map(rxThrottle, RX_THROTTLE_MIN, RX_THROTTLE_MAX, THROTTLE_MIN, THROTTLE_MAX);
 
   //xxSet er ønsket verdi, setpoint. Her i antall grader. xx er det som skal sendes til motor
   //  pitch = map(rxPitch, RX_PITCH_MIN, RX_PITCH_MAX, PITCH_MIN, PITCH_MAX);
-  pitchSet = map(rxPitch, RX_PITCH_MIN, RX_PITCH_MAX, PITCH_MIN_DEG, PITCH_MAX_DEG); //Regner ut ønsket hellning på pitch
-  rollSet  = map(rxRoll, RX_ROLL_MIN, RX_ROLL_MAX, ROLL_MIN, ROLL_MAX);
-  yawSet   = map(rxYaw, RX_YAW_MIN, RX_YAW_MAX, YAW_MIN, YAW_MAX);
+  pitch = map(rxPitch, RX_PITCH_MIN, RX_PITCH_MAX, PITCH_MIN_DEG, PITCH_MAX_DEG); //Regner ut ønsket hellning på pitch
+  roll  = map(rxRoll, RX_ROLL_MIN, RX_ROLL_MAX, ROLL_MIN, ROLL_MAX);
+  yaw   = map(rxYaw, RX_YAW_MIN, RX_YAW_MAX, YAW_MIN, YAW_MAX);
 
-
-  pidPitch.update(0);
-  pidRoll.update(0);
-
-  pitch = pitchSet + pidPitch.evaluate(angles[1])*pidSensitivity;
-  roll = rollSet + pidRoll.evaluate(angles[2])*pidSensitivity;
-  yaw = yawSet;
 
   int i, j;
   for(i = 0; i < 2; i++) {
