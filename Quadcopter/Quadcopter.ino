@@ -31,14 +31,14 @@ void setup() {
   #ifdef DEBUG
     Serial.begin(9600);
   #endif
-  delay(5);
+  delay(1);
   sixDOF.init();
-  delay(5); //delay for å være sikker på at gyroAcc starter opp. Kanskje ikke nødvendig med så mye tid
+  delay(1); //delay for å være sikker på at gyroAcc starter opp. Kanskje ikke nødvendig med så mye tid
 }
-int t;
+int loopTime;
 void loop() {
-  t = 0;
+  loopTime = millis();
   Gyro();
   FlightController(); //writes appropriate values to motors using PID
-  Serial.println(t);
+  Serial.println(millis() - loopTime);
 }
