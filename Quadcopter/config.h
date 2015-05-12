@@ -25,6 +25,7 @@
 #define RX_TIMEOUT 2200
 //------Pins------
 #ifdef _DUE_BOARD
+/*
 #define RX_PIN_THROTTLE 10
 #define RX_PIN_PITCH 9
 #define RX_PIN_ROLL 8
@@ -32,6 +33,14 @@
 //Auxillary - button and knobs
 #define RX_PIN_AUX1 12
 #define RX_PIN_AUX2 NULL
+*/
+
+#define RX_PIN_THROTTLE 10
+#define RX_PIN_PITCH 11
+#define RX_PIN_ROLL 12 //8
+#define RX_PIN_YAW 9 //11
+//Auxillary - button and knobs
+#define RX_PIN_AUX1 8
 
 #elif defined _UNO_BOARD
 #define RX_PIN_THROTTLE 2

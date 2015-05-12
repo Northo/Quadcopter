@@ -12,8 +12,8 @@ void FlightController() {
   roll  = map(rxRoll, RX_ROLL_MIN, RX_ROLL_MAX, ROLL_MIN, ROLL_MAX);
   yaw   = map(rxYaw, RX_YAW_MIN, RX_YAW_MAX, YAW_MIN, YAW_MAX);
 
-
-  int i, j;
+   int i, j;
+   /*
   for(i = 0; i < 2; i++) {
     for(j = 0; j < 2; j++) {
       motor[i][j] = (int) throttle\
@@ -22,6 +22,12 @@ void FlightController() {
 	+ yaw*zeroToMinus(i xor j);
     }
   } 
+  */
+
+  motor[0][0] = throttle - pitch + roll + yaw;
+  motor[0][1] = throttle - pitch - roll - yaw;
+  motor[1][0] = throttle + pitch + roll - yaw;
+  motor[1][1] = throttle + pitch - roll + yaw;
 
 
 #ifdef SAFE
@@ -45,6 +51,9 @@ void FlightController() {
       }
     }
 #endif
+
+  Serial.println(motor[0][0]);
+
 
   //PWM might damage motors
   analogWrite(MOTOR_FR, motor[0][0]);
