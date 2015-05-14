@@ -8,7 +8,7 @@ void FlightController() {
 
   //xxSet er ønsket verdi, setpoint. Her i antall grader. xx er det som skal sendes til motor
   //  pitch = map(rxPitch, RX_PITCH_MIN, RX_PITCH_MAX, PITCH_MIN, PITCH_MAX);
-  pitch = map(rxPitch, RX_PITCH_MIN, RX_PITCH_MAX, PITCH_MIN_DEG, PITCH_MAX_DEG); //Regner ut ønsket hellning på pitch
+  pitch = map(rxPitch, RX_PITCH_MIN, RX_PITCH_MAX, PITCH_MIN, PITCH_MAX); //Regner ut ønsket hellning på pitch
   roll  = map(rxRoll, RX_ROLL_MIN, RX_ROLL_MAX, ROLL_MIN, ROLL_MAX);
   yaw   = map(rxYaw, RX_YAW_MIN, RX_YAW_MAX, YAW_MIN, YAW_MAX);
 
@@ -24,10 +24,10 @@ void FlightController() {
   } 
   */
 
-  motor[0][0] = throttle - pitch + roll + yaw;
-  motor[0][1] = throttle - pitch - roll - yaw;
-  motor[1][0] = throttle + pitch + roll - yaw;
-  motor[1][1] = throttle + pitch - roll + yaw;
+  motor[0][0] = throttle - pitch + roll - yaw;
+  motor[0][1] = throttle - pitch - roll + yaw;
+  motor[1][0] = throttle + pitch + roll + yaw;
+  motor[1][1] = throttle + pitch - roll - yaw;
 
 
 #ifdef SAFE
@@ -51,13 +51,6 @@ void FlightController() {
       }
     }
 #endif
-
-  //PWM might damage motors
-  /*  motor00.write(motor[0][0]*10);
-  motor01.write(motor[0][1]*10);
-  motor10.write(motor[1][0]*10);
-  motor11.write(motor[1][1]*10);
-  */
 
     for(i=0; i<2; i++) {
       for(j=0; j<2; j++) {

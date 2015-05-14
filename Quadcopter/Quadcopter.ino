@@ -9,7 +9,7 @@ Quadcopter.ino is the main file.
 //#define _UNO_BOARD
 
 #define STOP_MAX //stop motor values to exeeding extremals
-#define DEBUG
+//#define DEBUG
 
 #include "config.h"
 #include <Servo.h>
@@ -24,10 +24,10 @@ void setup() {
     Serial.begin(9600);
   #endif
     
-    motor[0][0].attach(MOTOR_FR);
-    motor[0][1].attach(MOTOR_FL);
-    motor[1][0].attach(MOTOR_BR);
-    motor[1][1].attach(MOTOR_BL);
+    motorS[0][0].attach(MOTOR_FR);
+    motorS[0][1].attach(MOTOR_FL);
+    motorS[1][0].attach(MOTOR_BR);
+    motorS[1][1].attach(MOTOR_BL);
 }
 
 void loop() {

@@ -4,16 +4,16 @@
 //----------ESC's config-----------------
 
 //PWM values
-#define MOTOR_ZERO_LEVEL 125
+#define MOTOR_ZERO_LEVEL 1100
 #define MOTOR_ARM 140
-#define MOTOR_MAX_LEVEL 254
+#define MOTOR_MAX_LEVEL 2250
 
 //Motor pins
 #ifdef _DUE_BOARD
 #define MOTOR_FR 2
 #define MOTOR_FL 5
-#define MOTOR_BR 3
-#define MOTOR_BL 4
+#define MOTOR_BR 4
+#define MOTOR_BL 3
 #elif defined _UNO_BOARD
 #define MOTOR_BR 10
 #define MOTOR_BL 9
@@ -56,30 +56,30 @@
 //------KEY VALUES-
 #define RX_THROTTLE_MIN 1028
 #define RX_THROTTLE_MAX 1864
-#define THROTTLE_MAX MOTOR_MAX_LEVEL - (PITCH_MAX + ROLL_MAX + YAW_MAX)
-#define THROTTLE_MIN MOTOR_ZERO_LEVEL + 40
+#define THROTTLE_MAX MOTOR_MAX_LEVEL -(PITCH_MAX + ROLL_MAX+YAW_MAX)
+#define THROTTLE_MIN MOTOR_ZERO_LEVEL + 150
 
 #define RX_PITCH_MIN 1196
 #define RX_PITCH_MAX 1703
-#define PITCH_MIN -15
-#define PITCH_MAX 15
+#define PITCH_MIN -150
+#define PITCH_MAX 150
 #define PITCH_MIN_DEG -30
 #define PITCH_MAX_DEG 30
 
 #define RX_ROLL_MIN 1194
 #define RX_ROLL_MAX 1703
-#define ROLL_MIN -15
-#define ROLL_MAX 15
+#define ROLL_MIN -150
+#define ROLL_MAX 150
 
 #define RX_YAW_MIN 1035
 #define RX_YAW_MAX 1867
-#define YAW_MIN -15
-#define YAW_MAX 15
+#define YAW_MIN -150
+#define YAW_MAX 150
 
 #define RX_AUX1_MIN 1040
 #define RX_AUX1_MAX 1866
-#define AUX1_MIN -15
-#define AUX1_MAX 15
+#define AUX1_MIN -150
+#define AUX1_MAX 150
 
 #define RX_AUX2_MIN
 #define RX_AUX2_MAX
