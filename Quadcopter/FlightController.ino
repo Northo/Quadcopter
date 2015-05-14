@@ -52,14 +52,18 @@ void FlightController() {
     }
 #endif
 
-  Serial.println(motor[0][0]);
-
-
   //PWM might damage motors
-  analogWrite(MOTOR_FR, motor[0][0]);
-  analogWrite(MOTOR_FL, motor[0][1]);
-  analogWrite(MOTOR_BR, motor[1][0]);
-  analogWrite(MOTOR_BL, motor[1][1]);
+  /*  motor00.write(motor[0][0]*10);
+  motor01.write(motor[0][1]*10);
+  motor10.write(motor[1][0]*10);
+  motor11.write(motor[1][1]*10);
+  */
+
+    for(i=0; i<2; i++) {
+      for(j=0; j<2; j++) {
+	motorS[i][j].writeMicroseconds(motor[i][j]);
+      }
+    }
 }
 
 byte zeroToMinus(bool n) {
