@@ -13,23 +13,43 @@ Quadcopter.ino is the main file.
 
 #include "config.h"
 #include <Servo.h>
+#include <PID.h>
+#include <Wire.h>
+#include <FIMU_ADXL345.h>
+#include <FIMU_ITG3200.h>
+#include <FreeSixIMU.h>
 
 volatile unsigned int rxThrottle, rxPitch, rxRoll, rxYaw, rxAux1, rxAux2;
 
 Servo motorS[2][2];
+FreeSixIMU sixDOF = FreeSixIMU();
+
+PID pitchPID, rollPID;
+
+int angles[6], anglesInit[6];
 
 void setup() {
   rxInit();
-  #ifdef DEBUG
-    Serial.begin(9600);
-  #endif
-    
-    motorS[0][0].attach(MOTOR_FR);
-    motorS[0][1].attach(MOTOR_FL);
-    motorS[1][0].attach(MOTOR_BR);
-    motorS[1][1].attach(MOTOR_BL);
+  Wire.begin();
+  sixDOF.init();
+  delay(300);
+  gyroInit(); //Must be after sixDOF init
+#ifdef DEBUG
+  Serial.begin(9600);
+#endif
+  motorS[0][0].attach(MOTOR_FR);
+  motorS[0][1].attach(MOTOR_FL);
+  motorS[1][0].attach(MOTOR_BR);
+  motorS[1][1].attach(MOTOR_BL);
+
+  pitchPID.updateParameters(0.5, 0, 1);
+  rollPID.updateParameters(0.5, 0, 1);
+
+  //  pitchPID.update(0);
+  //  rollPID.update(0);
 }
 
 void loop() {
+  Gyro();
   FlightController(); //writes appropriate values to motors using PID
 }
