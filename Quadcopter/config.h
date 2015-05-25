@@ -41,6 +41,7 @@
 #define RX_PIN_YAW 9 //11
 //Auxillary - button and knobs
 #define RX_PIN_AUX1 8
+#define RX_PIN_AUX2 13
 
 #elif defined _UNO_BOARD
 #define RX_PIN_THROTTLE 2
@@ -81,7 +82,7 @@
 #define AUX1_MIN -150
 #define AUX1_MAX 150
 
-#define RX_AUX2_MIN
-#define RX_AUX2_MAX
+#define RX_AUX2_MIN 1060
+#define RX_AUX2_MAX 1875
 #define AUX2_MIN -15
 #define AUX2_MAX 15

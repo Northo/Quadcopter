@@ -6,9 +6,9 @@ void FlightController() {
   //motor values are computed by adding throttle, roll, yaw and pitch
   throttle = map(rxThrottle, RX_THROTTLE_MIN, RX_THROTTLE_MAX, THROTTLE_MIN, THROTTLE_MAX);
 
-  //xxSet er Ã¸nsket verdi, setpoint. Her i antall grader. xx er det som skal sendes til motor
+  //xxSet er ønsket verdi, setpoint. Her i antall grader. xx er det som skal sendes til motor
   //  pitch = map(rxPitch, RX_PITCH_MIN, RX_PITCH_MAX, PITCH_MIN, PITCH_MAX);
-  pitchSet = map(rxPitch, RX_PITCH_MIN, RX_PITCH_MAX, PITCH_MIN, PITCH_MAX); //Regner ut Ã¸nsket hellning pÃ¥ pitch
+  pitchSet = map(rxPitch, RX_PITCH_MIN, RX_PITCH_MAX, PITCH_MIN, PITCH_MAX); //Regner ut ønsket hellning på pitch
   rollSet  = map(rxRoll, RX_ROLL_MIN, RX_ROLL_MAX, ROLL_MIN, ROLL_MAX);
   yaw   = map(rxYaw, RX_YAW_MIN, RX_YAW_MAX, YAW_MIN, YAW_MAX);
 
@@ -54,7 +54,8 @@ void FlightController() {
       }
     }
 }
-
+/*
 byte zeroToMinus(bool n) {
   return n ? 1 : -1; //1 is 1 and 0 is -1
 }
+*/

@@ -51,5 +51,12 @@ void setup() {
 
 void loop() {
   Gyro();
+  pitchPID.updateParameters(mapD(rxAux2, RX_AUX2_MIN, RX_AUX2_MAX, 0.05, 0.6), 0.01, 0);
+  rollPID.updateParameters(mapD(rxAux2, RX_AUX2_MIN, RX_AUX2_MAX, 0.05, 0.6), 0.01, 0); //ole jacob
   FlightController(); //writes appropriate values to motors using PID
+}
+
+float mapD(float x, float in_min, float in_max, float out_min, float out_max)
+{
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }

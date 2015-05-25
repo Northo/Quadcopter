@@ -1,4 +1,4 @@
-volatile int t[5];
+volatile int t[6];
 
 void rxInit() {
   attachInterrupt(RX_PIN_THROTTLE, rxGoesUpThrottle, RISING);
@@ -6,6 +6,7 @@ void rxInit() {
   attachInterrupt(RX_PIN_ROLL, rxGoesUpRoll, RISING);
   attachInterrupt(RX_PIN_YAW, rxGoesUpYaw, RISING);
   attachInterrupt(RX_PIN_AUX1, rxGoesUpAux1, RISING);
+  attachInterrupt(RX_PIN_AUX2, rxGoesUpAux2, RISING);
 }
 
 //Not the most elegant solution, but it works(hopefully)
@@ -34,6 +35,11 @@ void rxGoesUpAux1() {
   t[4]=micros();
 }
 
+void rxGoesUpAux2() {
+  attachInterrupt(RX_PIN_AUX2, rxGoesDownAux2, FALLING);
+  t[5]=micros();
+}
+
 void rxGoesDownThrottle() {
   rxThrottle = micros() - t[0];
   attachInterrupt(RX_PIN_THROTTLE, rxGoesUpThrottle, RISING);
@@ -57,4 +63,9 @@ void rxGoesDownYaw() {
 void rxGoesDownAux1() {
   rxAux1 = micros() - t[4];
   attachInterrupt(RX_PIN_AUX1, rxGoesUpAux1, RISING);
+}
+
+void rxGoesDownAux2() {
+  rxAux2 = micros() - t[5];
+  attachInterrupt(RX_PIN_AUX2, rxGoesUpAux2, RISING);
 }
