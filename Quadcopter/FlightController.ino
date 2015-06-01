@@ -17,8 +17,8 @@ void FlightController() {
   //  pitchPID.update(0);
   //  rollPID.update(0);
   
-  pitch = pitchSet - pitchPID.evaluate(angles[0] - anglesInit[0]);
-  roll = rollSet - rollPID.evaluate(angles[1] - anglesInit[1]);
+  pitch = pitchPID.evaluate(angles[0] - anglesInit[0]);
+  roll = rollPID.evaluate(angles[1] - anglesInit[1]);
 
   motor[0][0] = throttle - pitch + roll - yaw;
   motor[0][1] = throttle - pitch - roll + yaw;
