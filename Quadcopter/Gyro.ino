@@ -1,7 +1,8 @@
 void Gyro() {
-  sixDOF.getRawValues(angles);
+  //  sixDOF.getRawValues(angles);
+  sixDOF.getYawPitchRoll(angles);
 }
 
 void gyroInit() {
-  sixDOF.getRawValues(anglesInit);
+  //  sixDOF.getRawValues(anglesInit);
 }

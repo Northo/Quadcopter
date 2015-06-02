@@ -14,19 +14,28 @@ Quadcopter.ino is the main file.
 #include "config.h"
 #include <Servo.h>
 #include <PID.h>
+/*
 #include <Wire.h>
 #include <FIMU_ADXL345.h>
 #include <FIMU_ITG3200.h>
 #include <FreeSixIMU.h>
+*/
+#include <ADXL345.h>
+#include <ITG3200.h>
+#include <I2Cdev.h>
+#include "FreeIMU.h"
+#include <Wire.h>
+#include <SPI.h>
+#include <DebugUtils.h>
 
 volatile unsigned int rxThrottle, rxPitch, rxRoll, rxYaw, rxAux1, rxAux2;
 
 Servo motorS[2][2];
-FreeSixIMU sixDOF = FreeSixIMU();
+FreeIMU sixDOF = FreeIMU();
 
 PID pitchPID, rollPID;
 
-int angles[6], anglesInit[6];
+float angles[6], anglesInit[6];
 
 void setup() {
   rxInit();
@@ -51,8 +60,8 @@ void setup() {
 
 void loop() {
   Gyro();
-  pitchPID.updateParameters(mapD(rxAux2, RX_AUX2_MIN, RX_AUX2_MAX, 0.05, 0.6), 0.01, 0);
-  rollPID.updateParameters(mapD(rxAux2, RX_AUX2_MIN, RX_AUX2_MAX, 0.05, 0.6), 0.01, 0); //ole jacob
+  pitchPID.updateParameters(mapD(rxAux2, RX_AUX2_MIN, RX_AUX2_MAX, 0.05, 5), 0, 1);
+  rollPID.updateParameters(mapD(rxAux2, RX_AUX2_MIN, RX_AUX2_MAX, 0.05, 5), 0.0, 1); //ole jacob
   FlightController(); //writes appropriate values to motors using PID
 }
 
