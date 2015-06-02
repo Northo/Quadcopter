@@ -1,7 +1,7 @@
 #include "Arduino.h" //Tillgang til Arduinos API, delay, digitalWrite osv.
 #include "PID.h"
 
-PID::PID() {
+PID::PID(int min, int max) {
   _setpoint = 0;
   _lastError = 0;
   _sumError = 0;
@@ -9,6 +9,8 @@ PID::PID() {
   _kp = 1;
   _ki = 1;
   _kd = 1;
+  _min = min;
+  _max = max;
 }
 
 int PID::evaluate(int value) {
@@ -20,7 +22,16 @@ int PID::evaluate(int value) {
 
   _lastError = error;
   _lastTime = time;
-  return _kp*error + _ki*_sumError + _kd*diff;
+
+  int sum = _kp*error + _ki*_sumError + _kd*diff;
+
+  /*  if(sum > _max){
+    sum = _max;
+  } else if(sum < _min) {
+    sum = _min;
+    }*/
+
+  return sum;
 }
 
 void PID::update(int setpoint) {
